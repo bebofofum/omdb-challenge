@@ -1,20 +1,12 @@
-# Getting Started with Create React App
+# MovieListContainer 
+Will fetch the data and render the corresponding subcomponents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Will fetch from the OMDB api, storing them in the components state and passing down the data to the child to display.
 
-## About the Challenge
+# MovieList
+Will be presentational
+Will receive data from parent through props  and will render html by way of jsx
 
---Be able to fetch from API
-http://www.omdbapi.com/?apikey=[yourkey]&
-
---Able to grab certain movies based on search selection
-
---Display a list of returned JSON objects based on the search criteria
-
---Displayed list should display Name, (Let's check the criteria and JSON) ???
-
---Displayed list should also have a Nominate button
-
---Clicking Nominate button should add that listing to our nomination list state
-
+# MovieSearch
+Will be a form to submit a query request to the api. Text input will be a controlled component that stores the value of it's input in the components state.
 
