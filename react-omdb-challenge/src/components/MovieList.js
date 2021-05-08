@@ -1,12 +1,11 @@
 import React from 'react'
+import MovieListItem from './MovieListItem'
 
-const MovieList = (props) => {
+const MovieList = ({ movies }) => {
     return(
-        <div>
-            <h1 className="text-3xl font-semibold pb-4 text-green-700">Movie Title</h1>
-            <ul>
-                Movie Listing
-            </ul>
+        <div className="mt-6">
+            <h1 className="text-3xl font-semibold pb-4 text-yellow-600">Movie Title</h1>
+            <ul className="flex space-x-4 px-4 justify-around">{movies.map(movie => <MovieListItem key={movie.Poster} movie={movie} />)}</ul>
         </div>
     )
 }
