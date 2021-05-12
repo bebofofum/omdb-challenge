@@ -6,7 +6,8 @@ import MovieList from '../components/MovieList'
 class MovieListContainer extends Component {
 
     state = {
-        movies: []
+        movies: [],
+        nominatedMovies: []
     }
 
     // constructor(props){
@@ -21,11 +22,16 @@ class MovieListContainer extends Component {
         fetch(searchResult)
         .then(response => response.json())
         .then(movieJson => {
-            const foundMovies = movieJson.Search.slice(0,5).map(movies => movies)
+            const foundMovies = movieJson.Search.slice(0,4).map(movies => movies)
             this.setState({
                 movies: foundMovies
             })
         })
+
+    }
+
+    handleNominateClick = (event) => {
+        console.log("I'm clicked!")
 
     }
 
@@ -35,7 +41,7 @@ class MovieListContainer extends Component {
             <section className="max-w-2xl w-10/12 mx-auto mt-20">
                 <h1 className="text-3xl font-semibold pb-4 text-gray-700">Movie List Container</h1>
                 <MovieSearch handleSearch={this.handleSearch} />
-                <MovieList movies={this.state.movies} />
+                <MovieList onClick={this.handleNominateClick} movies={this.state.movies} />
 
             </section>
         )
