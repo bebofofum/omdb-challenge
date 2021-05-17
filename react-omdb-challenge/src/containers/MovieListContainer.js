@@ -30,9 +30,16 @@ class MovieListContainer extends Component {
 
     }
 
-    handleNominateClick = (event) => {
-        console.log("I'm clicked!")
-
+    handleNominateClick = (detail) => {
+        const nominatedStateMovie = this.state.movies[detail].Title
+       console.log("clicked this", detail)
+       console.log("hopefull the movie is", nominatedStateMovie)
+       this.setState({
+           nominatedMovies: {
+               ...this.state.nomatedMovies, 
+               nominatedStateMovie
+            }    
+       })
     }
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MovieListItem = ({ movie, onClick }) => {
+const MovieListItem = ({itemID, movie, onClick }) => {
     return(
         <div className="bg-gradient-to-t from-black via-pink-900 to-pink-700  h-72 w-28 md:w-1/4 md:rounded-3xl rounded-full shadow-md relative flex flex-col items-center justify-between md:items-start py-5 transition-all duration-150">
             <li className="text-yellow-300 capitalize text-xl font-bold m-2 px-3 pt-3">{movie.Title}</li>
@@ -8,7 +8,7 @@ const MovieListItem = ({ movie, onClick }) => {
                 <div className="m-2 h-15 w-full place-content-center bg-indigo-800 border-solid border-2 border-light-blue-500 mb-1 rounded-md" >
                 <button 
                     className="p-2 w-full text-center text-white capitalize "
-                    onClick={onClick}>
+                    onClick={() => onClick(itemID)}>
                     Nominate 
                 </button>
                 </div>
