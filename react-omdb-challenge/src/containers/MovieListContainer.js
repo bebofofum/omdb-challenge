@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MovieSearch from '../components/MovieSearch'
 import MovieList from '../components/MovieList'
+import NominatedMoviesList from '../components/NominatedMoviesList'
 
 
 class MovieListContainer extends Component {
@@ -31,14 +32,13 @@ class MovieListContainer extends Component {
     }
 
     handleNominateClick = (detail) => {
-        const nominatedStateMovie = this.state.movies[detail].Title
+        const nominatedStateMovie = {
+            name: this.state.movies[detail].Title
+        }
        console.log("clicked this", detail)
        console.log("hopefull the movie is", nominatedStateMovie)
        this.setState({
-           nominatedMovies: {
-               ...this.state.nomatedMovies, 
-               nominatedStateMovie
-            }    
+            nominatedMovies: this.state.nominatedMovies.concat(nominatedStateMovie)  
        })
     }
 
@@ -49,6 +49,7 @@ class MovieListContainer extends Component {
                 <h1 className="text-3xl font-semibold pb-4 text-gray-700">Movie List Container</h1>
                 <MovieSearch handleSearch={this.handleSearch} />
                 <MovieList onClick={this.handleNominateClick} movies={this.state.movies} />
+                <NominatedMoviesList nominatedMovies={this.state.nominatedMovies} />
 
             </section>
         )
