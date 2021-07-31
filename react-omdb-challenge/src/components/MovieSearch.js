@@ -16,6 +16,10 @@ class MovieSearch extends Component {
     handleSubmit = (e) =>{
         e.preventDefault()
         this.props.handleSearch(this.state.search)
+        //running setstate here to reset the state search key value and clear the form
+        this.setState({
+            search: ''
+        })
 
 
     }
